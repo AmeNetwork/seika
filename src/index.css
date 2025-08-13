@@ -1,0 +1,25 @@
+@font-face {
+    font-family: fac;
+    src: url("./assets/font/GDSherpaRegularWeb.ttf");
+}
+*{
+    font-family: fac;
+    /* word-spacing: 6px;
+    letter-spacing: 1px; */
+}
+body{
+    color: #fff;
+    background: #070707;
+    margin: 0px;
+}
+
+ul,li,h6,p{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    margin-block-start: 0px;
+    padding-inline-start: 0px;
+}
+.Toastify__toast{
+    border: 3px solid #000;
+}
