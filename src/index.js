@@ -3,7 +3,7 @@ import { WagmiProvider, createConfig } from "wagmi";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App";
-import config from "./networkConfig";
+import config from "./config";
 import {
   RainbowKitProvider,
   darkTheme

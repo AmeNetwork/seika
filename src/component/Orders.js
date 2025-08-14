@@ -11,8 +11,9 @@ import {
   getAccount,
 } from "@wagmi/core";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import config from "../networkConfig";
+import config from "../config";
 import abi from "../abi.json";
+import { mode } from "viem/chains";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -24,7 +25,7 @@ function Orders() {
   const [price, setPrice] = useState("");
   const [limit, setLimit] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [currentOrderIndex, setCurrentOrderIndex] = useState(0);
+  const [modelDetail, setModelDetail] = useState({});
   const [works, setWorks] = useState([]);
 
   useEffect(() => {
@@ -107,6 +108,9 @@ function Orders() {
   };
 
   const getWorksByOrder=async(index)=>{
+
+    setModelDetail(orders[index]);
+
     const workIds=await readContract(config, {
       address: config.chains[0].contracts.orders,
       abi: abi,
@@ -114,7 +118,7 @@ function Orders() {
       args: [orders[index].id],
     });
 
-    console.log(workIds);
+
     let works=[];
     for(let id of workIds){
       let work=await readContract(config, {
@@ -131,15 +135,16 @@ function Orders() {
         detail:work[2],
       });
     }
-    setWorks(works);
-    
 
+    setWorks(works);
+
+ 
+  
   }
 
 
   return (
     <div className="Orders">
-      <button onClick={getWorksByOrder}>Get Works</button>
       <ConfigProvider
         theme={{
           components: {
@@ -177,14 +182,14 @@ function Orders() {
         >
         
             {orders.length!=0?(<div className="model_order">
-                <div className="model_order_id">Order ID: {orders[currentOrderIndex].id}</div>
-                <div className="model_order_detail">Order {orders[currentOrderIndex].detail}</div>
+                <div className="model_order_id">Order ID: {modelDetail.id}</div>
+                <div className="model_order_detail">Order {modelDetail.detail}</div>
                 
-                <div className="model_order_publisher">Publisher: {orders[currentOrderIndex].publisher}</div>
-                <div className="model_order_price">Price: {orders[currentOrderIndex].price}ETH</div>
-                <div className="model_order_amount">Amount: {orders[currentOrderIndex].amount}</div>
-                <div className="model_order_date">Date: {orders[currentOrderIndex].date}</div>
-                <div className="model_order_status">Status: {orders[currentOrderIndex].status}</div>
+                <div className="model_order_publisher">Publisher: {modelDetail.publisher}</div>
+                <div className="model_order_price">Price: {modelDetail.price}ETH</div>
+                <div className="model_order_amount">Amount: {modelDetail.amount}</div>
+                <div className="model_order_date">Date: {modelDetail.date}</div>
+                <div className="model_order_status">Status: {modelDetail.status}</div>
 
                 <ul>
                     {works.map((item,index)=>{
@@ -211,7 +216,7 @@ function Orders() {
         {orders.map((item, index) => (
           <li key={index}>
             <p className="order_info two_line_ellipsis" onClick={() => {
-              setCurrentOrderIndex(index);
+             
               getWorksByOrder(index);
               setShowModal(true);
             }}>{item.detail}</p>
