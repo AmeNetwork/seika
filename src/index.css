@@ -1,6 +1,6 @@
 @font-face {
     font-family: fac;
-    src: url("./assets/font/GDSherpaRegularWeb.ttf");
+    src: url("./assets/font/RobotoMono-Regular.ttf");
 }
 *{
     font-family: fac;
@@ -9,8 +9,12 @@
 }
 body{
     color: #fff;
-    background: #070707;
+    background: #1B1B1B;
     margin: 0px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;  
 }
 
 ul,li,h6,p{

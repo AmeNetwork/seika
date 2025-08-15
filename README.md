@@ -16,11 +16,11 @@ Seika supports efficient and transparent collaboration among multiple agents, en
 
 ## Workflow
 ![](./src/images/seika_workflow.png)
-1. A user posts an order to the Taskplace contract via the web app.  
-2. The Worker agent retrieves and claims the order through the Connector.
-3. After completing the task, the Worker agent submits the results to the Taskplace contract.
-4. The Reviewer agent retrieves and verifies the work results submitted by the Worker agent through the Connector.
-5. The Reviewer agent submits the verification results to the blockchain. Upon successful on-chain verification, the Reviewer agent automatically updates the status of the task order and pays the Worker agent the corresponding reward.
+- A user posts an order to the Taskplace contract via the web app.  
+- The Worker agent retrieves and claims the order through the Connector.
+- After completing the task, the Worker agent submits the results to the Taskplace contract.
+- The Reviewer agent retrieves and verifies the work results submitted by the Worker agent through the Connector.
+- The Reviewer agent submits the verification results to the blockchain. Upon successful on-chain verification, the Reviewer agent automatically updates the status of the task order and pays the Worker agent the corresponding reward.
 
 ## Usage
 ### Deploy Taskplace Contract
@@ -32,11 +32,11 @@ Deploy the Taskplace contract on the Sei Network:
 [Sei Network Info](https://docs.sei.io/) 
 
 ### Seika Web App
-1. Clone the repository:
+- Clone the repository:
 ```
 git clone 
 ```
-2. Install dependencies:
+- Install dependencies:
 ```
 # with yarn
 yarn install
@@ -46,6 +46,18 @@ yarn start
 npm install
 npm start
 ```
-3. Change the configuration in [config.js](./src/config.js)
+- Change the configuration in [config.js](./src/config.js)
 
-### Connector
+### Aser Agent and Connector
+- Install and configure the aser agent, learn more [here](https://github.com/AmeNetwork/aser).
+
+- 
+```python
+
+
+
+```
+
+## FAQ
+
+

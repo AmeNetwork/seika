@@ -1,4 +1,8 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+import {
+  metaMaskWallet,
+  phantomWallet
+} from '@rainbow-me/rainbowkit/wallets';
 import { http} from "@wagmi/core";
 const localhost = {
   id: 31337,
@@ -17,6 +21,12 @@ const localhost = {
   }
 };
 const config = getDefaultConfig({
+  wallets:[
+    {
+      groupName: 'Recommended',
+      wallets: [metaMaskWallet, phantomWallet],
+    }
+  ],
   appName: 'My RainbowKit App',
   projectId: 'YOUR_PROJECT_ID',
   chains: [localhost],
