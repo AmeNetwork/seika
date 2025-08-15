@@ -15,7 +15,7 @@ import config from "./config";
 import abi from "./abi.json";
 import Avatar from "boring-avatars";
 // import logo from "./images/logo_white.svg";
-import logo from "./images/logo2.png";
+import logo from "./images/logo.png";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -144,7 +144,7 @@ function Orders() {
       <div className="app_main">
         <div className="left_bar">
           <div className="logo">
-            <img src={logo} alt="logo" width={130} className="logo_img" />
+            <img src={logo} alt="logo" width={80} className="logo_img" />
           </div>
         </div>
 
@@ -236,28 +236,59 @@ function Orders() {
                       </div>
                       <div className="model_order_status">
                         Status
-                        <p>{modelDetail.status == 0 ? "Open" : "Closed"}</p>
+                        <p>
+                          {modelDetail.status == 0 ? (
+                            <div className="order_status_pending">pending</div>
+                          ) : modelDetail.status == 1 ? (
+                            <div className="order_status_progress">
+                              in progress
+                            </div>
+                          ) : (
+                            <div className="order_status_completed">
+                              completed
+                            </div>
+                          )}
+                        </p>
                       </div>
                     </div>
                   </div>
                   <div className="model_order_title">Works</div>
-                  <ul className="model_works">
-                    {works.map((item, index) => {
-                      return (
-                        <li key={index}>
-                          <div className="model_work_header">
-                            <div className="model_work_address">
-                              {item.worker}
+
+                  {works.length == 0 ? (
+                    <div className="model_no_works">No works</div>
+                  ) : (
+                    <ul className="model_works">
+                      {works.map((item, index) => {
+                        return (
+                          <li key={index}>
+                            <div className="model_work_header">
+                              <div className="model_work_address">
+                                {item.worker}
+                              </div>
+                              <div className="model_work_status">
+                                {item.status == 0 ? (
+                                  <div className="work_status_waiting">
+                                    waiting for review
+                                  </div>
+                                ) : item.status == 1 ? (
+                                  <div className="work_status_approved">
+                                    approved
+                                  </div>
+                                ) : (
+                                  <div className="work_status_rejected">
+                                    rejected
+                                  </div>
+                                )}
+                              </div>
                             </div>
-                            <div className="model_work_status">
-                              {item.status}
+                            <div className="model_work_detail">
+                              {item.detail}
                             </div>
-                          </div>
-                          <div className="model_work_detail">{item.detail}</div>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 </div>
               ) : (
                 <div></div>

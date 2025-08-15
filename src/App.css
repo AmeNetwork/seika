@@ -1,11 +1,12 @@
-.app{
+.app {
 
     padding: 6px;
     background: #505050;
     border: 1px solid #9E9E9E;
     border-radius: 4px;
 }
-.app_main{
+
+.app_main {
     overflow: hidden;
     width: 1000px;
     border-radius: 4px;
@@ -18,7 +19,7 @@
 
 }
 
-.left_bar{
+.left_bar {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -26,7 +27,8 @@
     width: 146px;
     border-right: 1px solid #000;
 }
-.logo{
+
+.logo {
     display: flex;
     width: 100%;
     height: 60px;
@@ -34,9 +36,11 @@
     align-items: center;
     border-bottom: 1px solid #000;
 }
-.logo_img{
+
+.logo_img {
     display: block;
 }
+
 .orders {
     width: 853px;
 }
@@ -54,7 +58,8 @@
 
 .order_title {
     width: 100%;
-    height: 50px;
+    height: 30px;
+    font-size: 14px;
     background: #1D1D1D;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
@@ -77,16 +82,18 @@
     border-right: 1px solid #000;
 }
 
-.order_title_price{
+.order_title_price {
     width: 150px;
     text-align: center;
     border-right: 1px solid #000;
 }
-.order_title_amount{
+
+.order_title_amount {
     width: 150px;
     text-align: center;
     border-right: 1px solid #000;
 }
+
 .order_title_date {
     width: 150px;
     text-align: center;
@@ -128,7 +135,7 @@
     text-align: center;
 }
 
-.order_page{
+.order_page {
 
     padding: 10px 0px;
     background: #1E1E1E;
@@ -136,7 +143,8 @@
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
 }
-.ant-pagination{
+
+.ant-pagination {
     justify-content: center;
     align-items: center;
 }
@@ -211,13 +219,15 @@
     justify-content: space-between;
     margin-top: 30px;
 }
-.create_order{
+
+.create_order {
     padding: 20px 0px;
     margin: 0px auto;
     background: #212025;
     width: calc(100% - 40px);
     height: auto;
 }
+
 .create_order_btn {
     cursor: pointer;
     background: #29282B;
@@ -230,7 +240,7 @@
     width: 120px;
 }
 
-.create_order_btn:hover{
+.create_order_btn:hover {
     background: #3E3D40;
 }
 
@@ -240,68 +250,131 @@
     color: #fff;
 }
 
-.model_order_title{
+.model_order_title {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 10px;
 }
-.model_order_panel{
+
+.model_order_panel {
     border: 1px solid #3E3D40;
     border-radius: 4px;
     justify-content: space-between;
     padding: 20px;
     margin-bottom: 20px;
 }
-.model_order_panel_header{
+
+.model_order_panel_header {
     display: flex;
 }
-.model_order_panel_header_info{
+
+.model_order_panel_header_info {
     margin-left: 10px;
 }
-.model_order_detail{
+
+.model_order_detail {
     padding: 10px;
     border-radius: 4px;
     background: #29282B;
     margin-top: 20px;
 }
-.model_order_date{
+
+.model_order_date {
     color: #A2A2A2;
 }
 
 .model_order_price p,
 .model_order_amount p,
-.model_order_status p{
+.model_order_status p {
     font-size: 14px;
     font-weight: bold;
     color: #fff;
 }
 
-.model_order_price ,
-.model_order_amount ,
-.model_order_status{
+.model_order_price,
+.model_order_amount,
+.model_order_status {
     width: 33%;
     text-align: left;
-   color: #A2A2A2;
+    color: #A2A2A2;
 }
-.model_order_panel_info{
+
+.model_order_panel_info {
     display: flex;
     margin-top: 20px;
 }
 
-.model_works li{
+.model_works li {
     border: 1px solid #3E3D40;
     border-radius: 4px;
     justify-content: space-between;
     padding: 20px;
     margin-bottom: 20px;
 }
-.model_work_header{
+
+.model_work_header {
     display: flex;
     justify-content: space-between;
     padding-bottom: 20px;
     border-bottom: 1px solid #3E3D40;
     margin-bottom: 20px;
+    align-items: center;
 }
-.model_work_detail{
+
+.model_work_detail {
     color: #A2A2A2;
+}
+
+.order_status_pending {
+    color: #FFA600;
+}
+
+.order_status_progress {
+    color: #0974FC;
+}
+
+.order_status_completed {
+    color: #209D4A;
+}
+
+.model_no_works {
+    width: 100%;
+    text-align: center;
+    color: #A2A2A2;
+}
+
+.model_work_address {
+    height: 20px;
+    line-height: 20px;
+}
+
+.work_status_waiting {
+    font-size: 12px;
+
+    padding: 4px 8px;
+
+    border-radius: 4px;
+    background: #FFEDB5;
+    color: #ED9800;
+}
+
+.work_status_approved {
+    font-size: 12px;
+
+    padding: 4px 8px;
+
+    border-radius: 4px;
+    background: #AFFAD0;
+    color: #209D4A;
+
+}
+
+.work_status_rejected {
+    font-size: 12px;
+
+    padding: 4px 8px;
+
+    border-radius: 4px;
+    background: #FFA898;
+    color: #D62F22;
 }
