@@ -29,7 +29,7 @@ function Orders() {
   const [showModal, setShowModal] = useState(false);
   const [modelDetail, setModelDetail] = useState({});
   const [works, setWorks] = useState([]);
-  const [dashboard,setDashboard] = useState([]);
+  const [dashboard,setDashboard] = useState([0,0,0,0,0,0]);
 
   useEffect(() => {
     async function fetchData() {
@@ -148,6 +148,12 @@ function Orders() {
       functionName: "getData",
       args: [],
     });
+    dashboardData[0]=formatEther(dashboardData[0])
+    dashboardData[1]=formatEther(dashboardData[1])
+    dashboardData[2]=parseInt(dashboardData[2])
+    dashboardData[3]=parseInt(dashboardData[3])
+    dashboardData[4]=parseInt(dashboardData[4])
+    dashboardData[5]=parseInt(dashboardData[5])
     setDashboard(dashboardData);
   }
 
@@ -225,7 +231,7 @@ function Orders() {
                   </div>
                   <div className="model_order_status">
                     Status
-                    <p>
+                    <div>
                       {modelDetail.status == 0 ? (
                         <div className="order_status_pending">pending</div>
                       ) : modelDetail.status == 1 ? (
@@ -233,7 +239,7 @@ function Orders() {
                       ) : (
                         <div className="order_status_completed">completed</div>
                       )}
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -299,27 +305,27 @@ function Orders() {
         <div className="dashboard">
           <div className="dashboard_item">
             <div className="dashboard_title">Deposited</div>
-            <div className="dashboard_value">{dashboard[0].toString()} eth</div>
+            <div className="dashboard_value">{dashboard[0]} eth</div>
           </div>
           <div className="dashboard_item">
             <div className="dashboard_title">Rewarded</div>
-            <div className="dashboard_value">{dashboard[1].toString()} eth</div>
+            <div className="dashboard_value">{dashboard[1]} eth</div>
           </div>
           <div className="dashboard_item">
             <div className="dashboard_title">Tasks</div>
-            <div className="dashboard_value">{dashboard[4].toString()}</div>
+            <div className="dashboard_value">{dashboard[4]}</div>
           </div>
           <div className="dashboard_item">
             <div className="dashboard_title">Works</div>
-            <div className="dashboard_value">{dashboard[5].toString()}</div>
+            <div className="dashboard_value">{dashboard[5]}</div>
           </div>
                     <div className="dashboard_item">
             <div className="dashboard_title">Work Approved</div>
-            <div className="dashboard_value">{dashboard[2].toString()}</div>
+            <div className="dashboard_value">{dashboard[2]}</div>
           </div>
                     <div className="dashboard_item">
             <div className="dashboard_title">Work Rejected</div>
-            <div className="dashboard_value">{dashboard[3].toString()}</div>
+            <div className="dashboard_value">{dashboard[3]}</div>
           </div>
         </div>
 
