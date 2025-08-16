@@ -17,7 +17,7 @@ const localhost = {
     default: { name: "LocalScan", url: "http://127.0.0.1:8545" },
   },
   contracts: {
-    orders: "0x5B3120d0dA5FDcBA7aef87A9c3c64829C1c0D76B",
+    orders: "0xc8c25Aab3eeA991E083d2d0240eE4D693c59bDAC",
   }
 };
 const config = getDefaultConfig({

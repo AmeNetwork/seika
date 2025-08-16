@@ -8,7 +8,7 @@
 
 .app_main {
     overflow: hidden;
-    width: 1000px;
+    width: 853px;
     border-radius: 4px;
     height: auto;
     border: 1px solid #9E9E9E;
@@ -16,25 +16,26 @@
     background: #212025;
     /* outline: 2px solid #000; */
     display: flex;
+    flex-direction: column;
 
 }
 
 .left_bar {
     display: flex;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: #22272E;
     width: 146px;
     border-right: 1px solid #000;
+    flex-direction: column;
+ 
 }
 
 .logo {
     display: flex;
-    width: 100%;
     height: 60px;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #000;
 }
 
 .logo_img {
@@ -46,7 +47,7 @@
 }
 
 
-.orders_header {
+.app_header {
     padding: 0px 10px;
     display: flex;
     width: calc(100% - 20px);
@@ -55,6 +56,30 @@
     align-items: center;
     justify-content: space-between;
 }
+
+
+.dashboard{
+    width:calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+
+
+}
+.dashboard_item{
+    text-align: center;
+}
+.dashboard_title{
+
+    color: #A2A2A2;
+    font-size: 12px;
+}
+.dashboard_value{
+
+}
+
+
 
 .order_title {
     width: 100%;
