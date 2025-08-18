@@ -37,9 +37,9 @@ root.render(
           borderRadius: "small",
         })}
       >
-        <Router>
+
           <App></App>
-        </Router>
+
       </RainbowKitProvider>
     </QueryClientProvider>
   </WagmiProvider>

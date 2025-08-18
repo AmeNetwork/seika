@@ -4,7 +4,7 @@ import {
   phantomWallet
 } from '@rainbow-me/rainbowkit/wallets';
 import { http} from "@wagmi/core";
-import { seiTestnet } from 'wagmi/chains';
+import { seiTestnet,sepolia} from 'wagmi/chains';
 const localhost = {
   id: 31337,
   name: "Localhost",
@@ -30,10 +30,11 @@ const config = getDefaultConfig({
   ],
   appName: 'My RainbowKit App',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [localhost],
+  chains: [localhost,sepolia,seiTestnet],
   transports: {
     [localhost.id]: http(""),
- 
+    [sepolia.id]: http(""),
+    [seiTestnet.id]: http(""),
 
   },
 

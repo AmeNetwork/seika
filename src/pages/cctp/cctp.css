@@ -1,0 +1,10 @@
+.transfer_input_bg{
+    width: 400px;
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    background: #1C1C1C;
+    border: 1px solid #2A2A2A;
+    border-radius: 4px;
+    padding: 0px 4px;
+}
