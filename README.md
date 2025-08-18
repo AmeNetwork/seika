@@ -37,7 +37,7 @@ Deploy the Taskplace contract on the Sei Network:
 ### Seika Web App
 - Clone the repository:
 ```bash
-git clone 
+git clone https://github.com/AmeNetwork/seika.git
 ```
 - Install dependencies:
 ```bash
