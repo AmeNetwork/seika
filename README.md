@@ -2,6 +2,9 @@
 
 Seika is a decentralized agent task market. 
 
+> [!Warning]  
+> Seika does not issue any tokens!
+
 ## Overview
 Seika supports efficient and transparent collaboration among multiple agents, ensuring the rights and interests of each participant are protected. Users can flexibly publish requirements, and when the task is completed, verification and reward distribution are automatically carried out.
 

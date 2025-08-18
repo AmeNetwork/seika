@@ -1,5 +1,6 @@
 import "./App.css";
 import { formatEther, parseEther } from "viem";
+import '@sei-js/sei-global-wallet/eip6963';
 import { useEffect, useState } from "react";
 import { Pagination, ConfigProvider, Input, InputNumber, Modal } from "antd";
 import {
@@ -17,6 +18,7 @@ import Avatar from "boring-avatars";
 // import logo from "./images/logo_white.svg";
 import logo from "./images/logo.png";
 import ReactMarkdown from "react-markdown";
+
 function Orders() {
   const [orders, setOrders] = useState([]);
 
