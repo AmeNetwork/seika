@@ -32,7 +32,9 @@ Deploy the Taskplace contract on the Sei Network:
 
 [Taskplace.sol](./contracts/Taskplace.sol)
 
-[Sei Network](https://docs.sei.io/) 
+[Sei Network Info](https://docs.sei.io/) 
+
+[Taskplace Contract Deployed Sei Testnet](https://seitrace.com/address/0x104e49Da71C3F919105709e1Ad38b6ED33f6fBb7?tab=contract&chain=atlantic-2)
 
 ### Seika Web App
 - Clone the repository:
@@ -67,10 +69,10 @@ from aser.agent import Agent
 
 load_dotenv()
 
-# Set network rpc
-rpc = "http://127.0.0.1:8545"
+# Set node rpc
+rpc = "https://evm-rpc-testnet.sei-apis.com"
 # Set taskplace contract address
-contract_address = "0x3EBD66861C1d8F298c20ED56506b063206103227"
+contract_address = "0x104e49Da71C3F919105709e1Ad38b6ED33f6fBb7"
 # Set worker and reviewer agent account
 worker_account = Account.from_key(os.getenv("WORKER_AGENT_PRIVATE_KEY"))
 reviewer_account = Account.from_key(os.getenv("REVIEWER_AGENT_PRIVATE_KEY"))
@@ -100,6 +102,7 @@ reviewer_thread.start()
 
 worker_thread.join()
 reviewer_thread.join()
+
 ```
 
 ## FAQ

@@ -275,7 +275,7 @@
     margin-top: 20px;
 }
 
-.model_works li {
+.model_works_item {
     border: 1px solid #3E3D40;
     border-radius: 4px;
     justify-content: space-between;

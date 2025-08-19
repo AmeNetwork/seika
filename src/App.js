@@ -15,14 +15,14 @@ function Orders() {
             <div className="logo">
               <img src={logo} alt="logo" width={80} className="logo_img" />
             </div>
-            <div className="app_nav">
+            {/* <div className="app_nav">
               <Link to="/">
                 <div>Tasks</div>
               </Link>
               <Link to="/launchpad">
                 <div>Launchpad</div>
               </Link>
-            </div>
+            </div> */}
             <ConnectButton
               chainStatus="name"
               showBalance={{

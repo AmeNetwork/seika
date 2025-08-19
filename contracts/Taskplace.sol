@@ -20,6 +20,23 @@ contract Taskplace{
     mapping(address=>uint256[]) public workerOrderIds;
     mapping(address=>uint256[]) public publisherOrderIds;
 
+    uint256[] public data=[0,0,0,0];
+    //0,deposited
+    //1,rewarded
+    //2,work_approved_count
+    //3,work_rejected_count
+
+    struct agent{
+        address agentAddress;
+        bool isRegister;
+        bool agentState;
+        uint256 approved;
+        uint256 rejected;
+        uint256 income;
+        string metadata;
+    }
+    mapping(address=>agent) public agents;
+
     event orderEvent(
         uint256 indexed e_orderId,
         uint256 e_price,
@@ -68,6 +85,7 @@ contract Taskplace{
         emit orderEvent(orderId,_price,_limit,_description,msg.sender,block.timestamp,1);
         orderIndexs[msg.sender]++;
         orderId++;
+        data[0]+=_price * _limit;
     }
 
     function createWork(uint256 _orderId,string memory _detail) public {
@@ -90,9 +108,16 @@ contract Taskplace{
             if(qualifiedWorkIds[workOrderId].length==orders[workOrderId].limit){
                 orders[workOrderId].status=2;
             }
-            payable(msg.sender).transfer(orders[works[_workId].orderId].price);
+            uint256 reward=orders[works[_workId].orderId].price;
+            payable(works[_workId].worker).transfer(reward);
+            agents[works[_workId].worker].approved+=1;
+            agents[works[_workId].worker].income+=reward;
+            data[1]+=reward;
+            data[2]+=1;
         }else{
+            agents[works[_workId].worker].rejected+=1;
             works[_workId].status=2;
+            data[3]+=1;
         }
         emit checkEvent(workOrderId, _workId, _approve);
     }
@@ -156,6 +181,29 @@ contract Taskplace{
                 return returnArray;
             }
         }
+    }
+
+
+    function updateWorker(bool _state,string memory _metadata)public {
+        agent memory worker=agents[msg.sender];
+        if(!worker.isRegister){
+            worker.agentAddress=msg.sender;
+            worker.isRegister=true;
+        }
+        worker.agentState=_state;
+        worker.metadata=_metadata;
+        agents[msg.sender]=worker;
+    }
+
+    function getData()public view returns(uint256[] memory){
+        uint256 [] memory returnData=new uint256[](6);
+        returnData[0]=data[0];
+        returnData[1]=data[1];
+        returnData[2]=data[2];
+        returnData[3]=data[3];
+        returnData[4]=orderId;
+        returnData[5]=workId;
+        return returnData;
     }
 
   

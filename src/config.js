@@ -21,6 +21,9 @@ const localhost = {
     orders: "0xc8c25Aab3eeA991E083d2d0240eE4D693c59bDAC",
   }
 };
+seiTestnet.contracts={
+  orders:"0x104e49Da71C3F919105709e1Ad38b6ED33f6fBb7"
+}
 const config = getDefaultConfig({
   wallets:[
     {
@@ -30,10 +33,8 @@ const config = getDefaultConfig({
   ],
   appName: 'My RainbowKit App',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [localhost,sepolia,seiTestnet],
+  chains: [seiTestnet],
   transports: {
-    [localhost.id]: http(""),
-    [sepolia.id]: http(""),
     [seiTestnet.id]: http(""),
 
   },

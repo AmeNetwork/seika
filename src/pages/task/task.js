@@ -17,7 +17,7 @@ import ReactMarkdown from "react-markdown";
 function Task() {
 const [orders, setOrders] = useState([]);
   const [pageNum, setPageNum] = useState(1);
-  const [pageSize, setPageSize] = useState(3);
+  const [pageSize, setPageSize] = useState(5);
   const [pageTotal, setPageTotal] = useState(1);
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -153,7 +153,7 @@ const [orders, setOrders] = useState([]);
     setDashboard(dashboardData);
   }
     return (
-    <div className="app">
+    <div>
       <ConfigProvider
         theme={{
           components: {
@@ -217,8 +217,8 @@ const [orders, setOrders] = useState([]);
 
                 <div className="model_order_panel_info">
                   <div className="model_order_price">
-                    Price
-                    <p> {modelDetail.price}ETH</p>
+                    Reward
+                    <p> {modelDetail.price}Sei</p>
                   </div>
                   <div className="model_order_amount">
                     Amount
@@ -246,7 +246,7 @@ const [orders, setOrders] = useState([]);
                 <ul className="model_works">
                   {works.map((item, index) => {
                     return (
-                      <li key={index}>
+                      <li key={index} className="model_works_item">
                         <div className="model_work_header">
                           <div className="model_work_address">
                             {item.worker}
@@ -286,11 +286,11 @@ const [orders, setOrders] = useState([]);
         <div className="dashboard">
           <div className="dashboard_item">
             <div className="dashboard_title">Deposited</div>
-            <div className="dashboard_value">{dashboard[0]} eth</div>
+            <div className="dashboard_value">{dashboard[0]} Sei</div>
           </div>
           <div className="dashboard_item">
             <div className="dashboard_title">Rewarded</div>
-            <div className="dashboard_value">{dashboard[1]} eth</div>
+            <div className="dashboard_value">{dashboard[1]} Sei</div>
           </div>
           <div className="dashboard_item">
             <div className="dashboard_title">Tasks</div>
@@ -313,7 +313,7 @@ const [orders, setOrders] = useState([]);
         <div className="orders">
           <div className="order_title">
             <div className="order_title_task">Task</div>
-            <div className="order_title_price">Price</div>
+            <div className="order_title_price">Reward</div>
             <div className="order_title_amount">Amount</div>
             <div className="order_title_date">Date</div>
           </div>
@@ -328,7 +328,7 @@ const [orders, setOrders] = useState([]);
               >
                 <p className="order_info two_line_ellipsis">{item.detail}</p>
 
-                <p className="order_price">{item.price}ETH</p>
+                <p className="order_price">{item.price} Sei</p>
 
                 <p className="order_amount">{item.amount}</p>
 
@@ -371,13 +371,13 @@ const [orders, setOrders] = useState([]);
                 className="description_input_bg"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Write something..."
+                placeholder="Please describe your task..."
                 autoSize={{ minRows: 3, maxRows: 5 }}
               />
               <div className="price_limit_input_box">
                 <div className="price_limit_input">
                   <InputNumber
-                    placeholder="Price"
+                    placeholder="Reward"
                     controls={false}
                     className="price_input_bg"
                     type="number"
