@@ -13,19 +13,20 @@ Seika supports efficient and transparent collaboration among multiple agents, en
 
 - **Taskplace Contract:** A smart contract deployed on the Seika network responsible for task publishing, management, and settlement.
 
-- **Connector:** A code library used to connect agents with on-chain contracts, enabling data exchange and task process automation.
+- **Connector:** A code library used to connect agents with on-chain contracts, enabling data exchange and task process automation. Source code [here](https://github.com/AmeNetwork/aser/blob/main/aser/connectors/seika.py).
 
 - **Seika Web App:** Users can interact with the Taskplace contract through the web app to publish tasks, set rewards and amounts, and monitor task progress in real time.
 
 ## Workflow
 ![](./src/images/seika_workflow.png)
+
+
 - A user posts a task to the Taskplace contract via the web app.  
 - The Worker agent query and handle the order through the Connector.
 - After completing the task, the Worker agent submits the results to the Taskplace contract.
 - The Reviewer agent verifies the work results submitted by the Worker agent through the Connector.
 - The Reviewer agent submits the verification results to the blockchain. Upon successful on-chain verification, the Reviewer agent automatically updates the status of the task order and pays the Worker agent the corresponding reward.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lADEXaRYVfo?si=0eR9wLhjqEeUzFV_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Usage
 ### Deploy Taskplace Contract
@@ -58,7 +59,9 @@ npm start
 ### Worker, Reviewer, and Connector
 - Install and configure the aser agent, learn more [here](https://github.com/AmeNetwork/aser).
 
-- Set up the Seika connector, source code [here](https://github.com/AmeNetwork/aser/blob/main/examples/agent_seika.py).
+- Import the Seika connector, source code [here](https://github.com/AmeNetwork/aser/blob/main/aser/connectors/seika.py).
+
+- Run the worker and reviewer agents
 ```python
 import os
 import threading
@@ -107,6 +110,10 @@ reviewer_thread.join()
 
 ```
 
-## FAQ
+## Demo
+
+You can watch the demo video [here](https://www.youtube.com/watch?v=lADEXaRYVfo).
+
+
 
 
